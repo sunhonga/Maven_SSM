@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sun.mapper.CszqxxMapper">
+  <resultMap id="BaseResultMap" type="com.sun.pojo.Cszqxx">
+    <result column="fzqdm" jdbcType="VARCHAR" property="fzqdm" />
+    <result column="fzqmc" jdbcType="VARCHAR" property="fzqmc" />
+    <result column="fjjdm" jdbcType="VARCHAR" property="fjjdm" />
+    <result column="fjxqsr" jdbcType="DATE" property="fjxqsr" />
+    <result column="fjxjzr" jdbcType="DATE" property="fjxjzr" />
+    <result column="fsqpmlv" jdbcType="DECIMAL" property="fsqpmlv" />
+    <result column="fpmlv" jdbcType="DECIMAL" property="fpmlv" />
+    <result column="fpmje" jdbcType="DECIMAL" property="fpmje" />
+    <result column="ffxjg" jdbcType="DECIMAL" property="ffxjg" />
+    <result column="ffxcs" jdbcType="DECIMAL" property="ffxcs" />
+    <result column="ffxfs" jdbcType="DECIMAL" property="ffxfs" />
+    <result column="fzqlb" jdbcType="VARCHAR" property="fzqlb" />
+    <result column="fjysc" jdbcType="VARCHAR" property="fjysc" />
+    <result column="fssdd" jdbcType="VARCHAR" property="fssdd" />
+    <result column="fscdm" jdbcType="VARCHAR" property="fscdm" />
+    <result column="flvlx" jdbcType="VARCHAR" property="flvlx" />
+    <result column="fcxqsr" jdbcType="DATE" property="fcxqsr" />
+    <result column="fcxjzr" jdbcType="DATE" property="fcxjzr" />
+    <result column="fan" jdbcType="VARCHAR" property="fan" />
+    <result column="fsh" jdbcType="INTEGER" property="fsh" />
+    <result column="fzzr" jdbcType="VARCHAR" property="fzzr" />
+    <result column="fchk" jdbcType="VARCHAR" property="fchk" />
+    <result column="fstartdate" jdbcType="DATE" property="fstartdate" />
+    <result column="fqyxx" jdbcType="VARCHAR" property="fqyxx" />
+    <result column="fjxfs" jdbcType="VARCHAR" property="fjxfs" />
+    <result column="fid" jdbcType="DECIMAL" property="fid" />
+    <result column="fbz" jdbcType="VARCHAR" property="fbz" />
+    <result column="ftype" jdbcType="DECIMAL" property="ftype" />
+    <result column="fendfan" jdbcType="VARCHAR" property="fendfan" />
+    <result column="fjsjg" jdbcType="DECIMAL" property="fjsjg" />
+    <result column="fcbgz" jdbcType="DECIMAL" property="fcbgz" />
+    <result column="frlvjx" jdbcType="DECIMAL" property="frlvjx" />
+    <result column="fkxqrq" jdbcType="DATE" property="fkxqrq" />
+    <result column="ffxr" jdbcType="VARCHAR" property="ffxr" />
+    <result column="ftsfxr" jdbcType="DECIMAL" property="ftsfxr" />
+    <result column="fhfxr" jdbcType="DECIMAL" property="fhfxr" />
+    <result column="fupdate" jdbcType="DATE" property="fupdate" />
+  </resultMap>
+  <insert id="insert" parameterType="cszqxx">
+    insert into cszqxx (fzqdm, fzqmc, fjjdm, 
+      fjxqsr, fjxjzr, fsqpmlv, 
+      fpmlv, fpmje, ffxjg, 
+      ffxcs, ffxfs, fzqlb, 
+      fjysc, fssdd, fscdm, 
+      flvlx, fcxqsr, fcxjzr, fan, 
+      fsh, fzzr, fchk, fstartdate, 
+      fqyxx, fjxfs, fid, 
+      fbz, ftype, fendfan, 
+      fjsjg, fcbgz, frlvjx, 
+      fkxqrq, ffxr, ftsfxr, 
+      fhfxr, fupdate)
+    values (#{fzqdm,jdbcType=VARCHAR}, #{fzqmc,jdbcType=VARCHAR}, #{fjjdm,jdbcType=VARCHAR}, 
+      #{fjxqsr,jdbcType=DATE}, #{fjxjzr,jdbcType=DATE}, #{fsqpmlv,jdbcType=DECIMAL}, 
+      #{fpmlv,jdbcType=DECIMAL}, #{fpmje,jdbcType=DECIMAL}, #{ffxjg,jdbcType=DECIMAL}, 
+      #{ffxcs,jdbcType=DECIMAL}, #{ffxfs,jdbcType=DECIMAL}, #{fzqlb,jdbcType=VARCHAR}, 
+      #{fjysc,jdbcType=VARCHAR}, #{fssdd,jdbcType=VARCHAR}, #{fscdm,jdbcType=VARCHAR}, 
+      #{flvlx,jdbcType=VARCHAR}, #{fcxqsr,jdbcType=DATE}, #{fcxjzr,jdbcType=DATE}, #{fan,jdbcType=VARCHAR}, 
+      #{fsh,jdbcType=INTEGER}, #{fzzr,jdbcType=VARCHAR}, #{fchk,jdbcType=VARCHAR}, #{fstartdate,jdbcType=DATE}, 
+      #{fqyxx,jdbcType=VARCHAR}, #{fjxfs,jdbcType=VARCHAR}, #{fid,jdbcType=DECIMAL}, 
+      #{fbz,jdbcType=VARCHAR}, #{ftype,jdbcType=DECIMAL}, #{fendfan,jdbcType=VARCHAR}, 
+      #{fjsjg,jdbcType=DECIMAL}, #{fcbgz,jdbcType=DECIMAL}, #{frlvjx,jdbcType=DECIMAL}, 
+      #{fkxqrq,jdbcType=DATE}, #{ffxr,jdbcType=VARCHAR}, #{ftsfxr,jdbcType=DECIMAL}, 
+      #{fhfxr,jdbcType=DECIMAL}, #{fupdate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="cszqxx">
+    insert into cszqxx
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fzqdm != null">
+        fzqdm,
+      </if>
+      <if test="fzqmc != null">
+        fzqmc,
+      </if>
+      <if test="fjjdm != null">
+        fjjdm,
+      </if>
+      <if test="fjxqsr != null">
+        fjxqsr,
+      </if>
+      <if test="fjxjzr != null">
+        fjxjzr,
+      </if>
+      <if test="fsqpmlv != null">
+        fsqpmlv,
+      </if>
+      <if test="fpmlv != null">
+        fpmlv,
+      </if>
+      <if test="fpmje != null">
+        fpmje,
+      </if>
+      <if test="ffxjg != null">
+        ffxjg,
+      </if>
+      <if test="ffxcs != null">
+        ffxcs,
+      </if>
+      <if test="ffxfs != null">
+        ffxfs,
+      </if>
+      <if test="fzqlb != null">
+        fzqlb,
+      </if>
+      <if test="fjysc != null">
+        fjysc,
+      </if>
+      <if test="fssdd != null">
+        fssdd,
+      </if>
+      <if test="fscdm != null">
+        fscdm,
+      </if>
+      <if test="flvlx != null">
+        flvlx,
+      </if>
+      <if test="fcxqsr != null">
+        fcxqsr,
+      </if>
+      <if test="fcxjzr != null">
+        fcxjzr,
+      </if>
+      <if test="fan != null">
+        fan,
+      </if>
+      <if test="fsh != null">
+        fsh,
+      </if>
+      <if test="fzzr != null">
+        fzzr,
+      </if>
+      <if test="fchk != null">
+        fchk,
+      </if>
+      <if test="fstartdate != null">
+        fstartdate,
+      </if>
+      <if test="fqyxx != null">
+        fqyxx,
+      </if>
+      <if test="fjxfs != null">
+        fjxfs,
+      </if>
+      <if test="fid != null">
+        fid,
+      </if>
+      <if test="fbz != null">
+        fbz,
+      </if>
+      <if test="ftype != null">
+        ftype,
+      </if>
+      <if test="fendfan != null">
+        fendfan,
+      </if>
+      <if test="fjsjg != null">
+        fjsjg,
+      </if>
+      <if test="fcbgz != null">
+        fcbgz,
+      </if>
+      <if test="frlvjx != null">
+        frlvjx,
+      </if>
+      <if test="fkxqrq != null">
+        fkxqrq,
+      </if>
+      <if test="ffxr != null">
+        ffxr,
+      </if>
+      <if test="ftsfxr != null">
+        ftsfxr,
+      </if>
+      <if test="fhfxr != null">
+        fhfxr,
+      </if>
+      <if test="fupdate != null">
+        fupdate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fzqdm != null">
+        #{fzqdm,jdbcType=VARCHAR},
+      </if>
+      <if test="fzqmc != null">
+        #{fzqmc,jdbcType=VARCHAR},
+      </if>
+      <if test="fjjdm != null">
+        #{fjjdm,jdbcType=VARCHAR},
+      </if>
+      <if test="fjxqsr != null">
+        #{fjxqsr,jdbcType=DATE},
+      </if>
+      <if test="fjxjzr != null">
+        #{fjxjzr,jdbcType=DATE},
+      </if>
+      <if test="fsqpmlv != null">
+        #{fsqpmlv,jdbcType=DECIMAL},
+      </if>
+      <if test="fpmlv != null">
+        #{fpmlv,jdbcType=DECIMAL},
+      </if>
+      <if test="fpmje != null">
+        #{fpmje,jdbcType=DECIMAL},
+      </if>
+      <if test="ffxjg != null">
+        #{ffxjg,jdbcType=DECIMAL},
+      </if>
+      <if test="ffxcs != null">
+        #{ffxcs,jdbcType=DECIMAL},
+      </if>
+      <if test="ffxfs != null">
+        #{ffxfs,jdbcType=DECIMAL},
+      </if>
+      <if test="fzqlb != null">
+        #{fzqlb,jdbcType=VARCHAR},
+      </if>
+      <if test="fjysc != null">
+        #{fjysc,jdbcType=VARCHAR},
+      </if>
+      <if test="fssdd != null">
+        #{fssdd,jdbcType=VARCHAR},
+      </if>
+      <if test="fscdm != null">
+        #{fscdm,jdbcType=VARCHAR},
+      </if>
+      <if test="flvlx != null">
+        #{flvlx,jdbcType=VARCHAR},
+      </if>
+      <if test="fcxqsr != null">
+        #{fcxqsr,jdbcType=DATE},
+      </if>
+      <if test="fcxjzr != null">
+        #{fcxjzr,jdbcType=DATE},
+      </if>
+      <if test="fan != null">
+        #{fan,jdbcType=VARCHAR},
+      </if>
+      <if test="fsh != null">
+        #{fsh,jdbcType=INTEGER},
+      </if>
+      <if test="fzzr != null">
+        #{fzzr,jdbcType=VARCHAR},
+      </if>
+      <if test="fchk != null">
+        #{fchk,jdbcType=VARCHAR},
+      </if>
+      <if test="fstartdate != null">
+        #{fstartdate,jdbcType=DATE},
+      </if>
+      <if test="fqyxx != null">
+        #{fqyxx,jdbcType=VARCHAR},
+      </if>
+      <if test="fjxfs != null">
+        #{fjxfs,jdbcType=VARCHAR},
+      </if>
+      <if test="fid != null">
+        #{fid,jdbcType=DECIMAL},
+      </if>
+      <if test="fbz != null">
+        #{fbz,jdbcType=VARCHAR},
+      </if>
+      <if test="ftype != null">
+        #{ftype,jdbcType=DECIMAL},
+      </if>
+      <if test="fendfan != null">
+        #{fendfan,jdbcType=VARCHAR},
+      </if>
+      <if test="fjsjg != null">
+        #{fjsjg,jdbcType=DECIMAL},
+      </if>
+      <if test="fcbgz != null">
+        #{fcbgz,jdbcType=DECIMAL},
+      </if>
+      <if test="frlvjx != null">
+        #{frlvjx,jdbcType=DECIMAL},
+      </if>
+      <if test="fkxqrq != null">
+        #{fkxqrq,jdbcType=DATE},
+      </if>
+      <if test="ffxr != null">
+        #{ffxr,jdbcType=VARCHAR},
+      </if>
+      <if test="ftsfxr != null">
+        #{ftsfxr,jdbcType=DECIMAL},
+      </if>
+      <if test="fhfxr != null">
+        #{fhfxr,jdbcType=DECIMAL},
+      </if>
+      <if test="fupdate != null">
+        #{fupdate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="selectByFjjdmAndFzqmc" resultType="cszqxx">
+    select * from cszqxx
+    <where>
+      <if test="fjjdm != null"> and fjjdm = #{fjjdm}</if>
+      <if test="fzqmc != null"> and fzqmc like '${fzqmc}%'</if>
+    </where>
+  </select>
+
+
+  <select id="selectByFzqdm" resultType="cszqxx">
+    select * from cszqxx
+    <where>
+      <if test="fzqdm !=null"> and fzqdm = #{fzqdm}</if>
+    </where>
+
+  </select>
+</mapper>

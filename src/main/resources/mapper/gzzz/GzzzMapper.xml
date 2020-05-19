@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sun.mapper.gzzz.GzzzMapper">
+
+    <resultMap id="GzzzMap" type="gzzz">
+        <result column="fvchzy" jdbcType="VARCHAR" property="fvchzy" />
+        <result column="fbal" jdbcType="DECIMAL" property="fbal" />
+        <result column="fsl" jdbcType="DECIMAL" property="fsl" />
+        <result column="fdate" jdbcType="DATE" property="date" />
+        <result column="fzqdm" jdbcType="VARCHAR" property="fzqdm" />
+        <result column="fhqssj" jdbcType="DECIMAL" property="fhqssj" />
+    </resultMap>
+
+
+    <d
+
+</mapper>

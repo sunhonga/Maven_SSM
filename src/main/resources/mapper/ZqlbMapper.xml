@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sun.mapper.ZqlbMapper">
+
+    <resultMap id="BaseResultMap" type="com.sun.pojo.Zqlb">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="zqlb" jdbcType="INTEGER" property="zqlb" />
+        <result column="subzqlb" jdbcType="VARCHAR" property="subzqlb" />
+        <result column="desc" jdbcType="VARCHAR" property="desc" />
+
+    </resultMap>
+    <select id="selectZqlbById"  resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+        SELECT * FROM zhenquan
+        <if test="value != null and value != '' ">
+            <where>
+                 zqlb = #{id }
+            </where>
+        </if>
+    </select>
+
+
+
+
+    <insert id="insertZqlb" parameterType="zqlb">
+        insert into zhenquan (zqlb,subzqlb,`desc`)
+        values (#{zqlb,jdbcType=VARCHAR,typeHandler=com.sun.utils.MyTypeHandler},#{desc,jdbcType=VARCHAR})
+
+    </insert>
+</mapper>
