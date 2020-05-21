@@ -17,7 +17,7 @@ import java.util.List;
 @Repository
 public interface AccountService {
 
-    List<Account> transfer() throws FileNotFoundException;
+    List<Account> transfer() ;
 
 
 

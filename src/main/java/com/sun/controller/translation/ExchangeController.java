@@ -27,7 +27,7 @@ public class ExchangeController {
 
     @ResponseBody
     @RequestMapping("tx_test.do")
-    public List<Account> transfer() throws FileNotFoundException {
+    public List<Account> transfer() {
        return  accountService.transfer();
     }
 

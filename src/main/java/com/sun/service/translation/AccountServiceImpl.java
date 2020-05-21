@@ -27,7 +27,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Transactional()
     @Override
-    public List<Account> transfer() throws FileNotFoundException {
+    public List<Account> transfer()  {
         accountMapper.add(new Account("张三", 1000));
 
 
