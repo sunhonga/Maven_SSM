@@ -32,9 +32,9 @@ public class AccountServiceImpl implements AccountService {
 
 
         //FileInputStream fileInputStream = new FileInputStream("路径不存在");
-        if (1<2) {
+/*        if (1<2) {
             throw new RuntimeException("test");
-        }
+        }*/
         accountMapper.sub(new Account("李四", 1000));
 
         return accountMapper.getAccount();
