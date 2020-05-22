@@ -3,7 +3,7 @@
 
 <mapper namespace="com.sun.mapper.gzzz.GzzzMapper">
 
-        <resultMap id="GzzzMap" type="gzzz">
+        <resultMap id="GzzzMap" type="java.util.Map">
             <result column="fvchzy" jdbcType="VARCHAR" property="fvchzy" />
             <result column="fbal" jdbcType="DECIMAL" property="fbal" />
             <result column="fsl" jdbcType="DECIMAL" property="fsl" />
@@ -12,7 +12,7 @@
             <result column="fhqssj" jdbcType="DECIMAL" property="fhqssj" />
         </resultMap>
 
-    <select id="getGzzz" resultMap="GzzzMap">
+    <select id="getGzzz" resultType="gzzz">
       SELECT
         aa.fvchzy fvchzy,
         aa.fbal fbal,
@@ -29,4 +29,21 @@
         AND bb.fdate = DATE('2019-10-10')
     </select>
 
+
+    <select id="getGzzz2" resultMap="GzzzMap">
+        SELECT
+            aa.fvchzy fvchzy,
+            aa.fbal fbal,
+            aa.fsl fsl,
+            aa.fdate fdate,
+            bb.fzqdm fzqdm,
+            bb.fhqssj fhqssj
+        FROM
+            a2019282fcwvch aa
+                LEFT JOIN a2019jjhzhq bb ON aa.fdate = bb.fdate
+        WHERE
+            aa.fzqjyfs = 'MRGP'
+          AND ( CASE LENGTH( aa.fkmh ) WHEN 14 THEN SUBSTR( aa.fkmh, 9, 6 ) ELSE aa.fkmh END ) = bb.fzqdm
+          AND bb.fdate = DATE('2019-10-10')
+    </select>
 </mapper>

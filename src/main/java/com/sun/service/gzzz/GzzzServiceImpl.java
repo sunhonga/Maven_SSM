@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName GzzzServiceImpl
@@ -24,5 +25,10 @@ public class GzzzServiceImpl implements GzzzService {
     @Override
     public List<Gzzz> getGzzz(Date date) {
         return gzzzMapper.getGzzz(date);
+    }
+
+    @Override
+    public List<Map<String, Object>> getGzzz2() {
+        return gzzzMapper.getGzzz2();
     }
 }

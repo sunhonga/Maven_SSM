@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName GzzzMapper
@@ -15,6 +16,7 @@ import java.util.List;
 public interface GzzzMapper {
 
     List<Gzzz> getGzzz(@Param("date") Date date);
+    List<Map<String,Object>> getGzzz2();
 
 
 }
