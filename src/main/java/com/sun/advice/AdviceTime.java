@@ -1,9 +1,8 @@
 package com.sun.advice;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -26,26 +25,48 @@ public class AdviceTime {
 
 
 
-    //环绕通知
+    //@Before("pointCut1()")
+    public void before(JoinPoint call) {
+        String className = call.getTarget().getClass().getName();
+        String methodName = call.getSignature().getName();
+        System.out.println("开始执行:"+className+"."+methodName+"()方法...");
+    }
+    //访问命名切入点来应用后置通知
+   // @AfterReturning("pointCut1()")
+    public void afterReturn(JoinPoint call) {
+        String className = call.getTarget().getClass().getName();
+        String methodName = call.getSignature().getName();
+        System.out.println(className+"."+methodName+"()方法正常执行结束...");
+    }
+    //应用最终通知
+    //@After("pointCut1()")
+    public void after(JoinPoint call) {
+        String className = call.getTarget().getClass().getName();
+        String methodName = call.getSignature().getName();
+        System.out.println(className+"."+methodName+"()最终执行步骤(finally)...");
+    }
+    //应用异常抛出后通知
+    //@AfterThrowing("pointCut1()")
+    public void afterThrowing(JoinPoint call) {
+        String className = call.getTarget().getClass().getName();
+        String methodName = call.getSignature().getName();
+        System.out.println(className+"."+methodName+"()方法抛出了异常...");
+    }
+    //应用周围通知
     @Around("pointCut1()")
-    public Object arroundTime(ProceedingJoinPoint pjp){
-        Object rtn = null;
-        String mname = pjp.getSignature().getName();
-        Object[] args = pjp.getArgs();
-        Long timeStart = System.currentTimeMillis();
-        System.out.println("开始时间:"+timeStart);
-        System.out.println("方法名："+mname+"参数列表"+ Arrays.toString(args));
-        try{
-            rtn = pjp.proceed();
-        }catch (Throwable e){
-            //异常处理
-            System.out.println("方法名："+mname+"参数列表"+ Arrays.toString(args) +e.getMessage());
-        }finally {
-            Long timeEnd = System.currentTimeMillis();
-            System.out.println("结束时间:"+timeEnd);
-            System.out.println("公共耗时"+(timeEnd-timeStart));
+    public Object doAround(ProceedingJoinPoint call) throws Throwable{
+        Object result = null;
+        this.before(call);//相当于前置通知
+        try {
+            result = call.proceed();
+            this.afterReturn(call); //相当于后置通知
+        } catch (Throwable e) {
+            this.afterThrowing(call);  //相当于异常抛出后通知
+            throw e;
+        }finally{
+            this.after(call);  //相当于最终通知
         }
-        return rtn;
+        return result;
     }
 
 }
