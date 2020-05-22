@@ -1,7 +1,7 @@
 package com.sun.pojo.gzzz;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * @ClassName Gzzz
@@ -64,5 +64,17 @@ public class Gzzz {
 
     public void setFhqssj(BigDecimal fhqssj) {
         this.fhqssj = fhqssj;
+    }
+
+    @Override
+    public String toString() {
+        return "Gzzz{" +
+                "fvchzy='" + fvchzy + '\'' +
+                ", fbal=" + fbal +
+                ", fsl=" + fsl +
+                ", fdate=" + fdate +
+                ", fzqdm='" + fzqdm + '\'' +
+                ", fhqssj=" + fhqssj +
+                '}';
     }
 }

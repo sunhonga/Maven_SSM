@@ -3,7 +3,7 @@ package com.sun.mapper.gzzz;
 import com.sun.pojo.gzzz.Gzzz;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -15,5 +15,6 @@ import java.util.List;
 public interface GzzzMapper {
 
     List<Gzzz> getGzzz(@Param("date") Date date);
+
 
 }

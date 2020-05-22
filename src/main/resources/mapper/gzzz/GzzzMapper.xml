@@ -3,16 +3,30 @@
 
 <mapper namespace="com.sun.mapper.gzzz.GzzzMapper">
 
-    <resultMap id="GzzzMap" type="gzzz">
-        <result column="fvchzy" jdbcType="VARCHAR" property="fvchzy" />
-        <result column="fbal" jdbcType="DECIMAL" property="fbal" />
-        <result column="fsl" jdbcType="DECIMAL" property="fsl" />
-        <result column="fdate" jdbcType="DATE" property="date" />
-        <result column="fzqdm" jdbcType="VARCHAR" property="fzqdm" />
-        <result column="fhqssj" jdbcType="DECIMAL" property="fhqssj" />
-    </resultMap>
+    <!--    <resultMap id="GzzzMap" type="gzzz">
+            <result column="fvchzy" jdbcType="VARCHAR" property="fvchzy" />
+            <result column="fbal" jdbcType="DECIMAL" property="fbal" />
+            <result column="fsl" jdbcType="DECIMAL" property="fsl" />
+            <result column="fdate" jdbcType="DATE" property="date" />
+            <result column="fzqdm" jdbcType="VARCHAR" property="fzqdm" />
+            <result column="fhqssj" jdbcType="DECIMAL" property="fhqssj" />
+        </resultMap>-->
 
-
-    <d
+    <select id="getGzzz" resultType="gzzz">
+      SELECT
+        aa.fvchzy fvchzy,
+        aa.fbal fbal,
+        aa.fsl fsl,
+        aa.fdate fdate,
+        bb.fzqdm fzqdm,
+        bb.fhqssj fhqssj
+      FROM
+	      a2019282fcwvch aa
+	      LEFT JOIN a2019jjhzhq bb ON aa.fdate = bb.fdate
+      WHERE
+	    aa.fzqjyfs = 'MRGP'
+	    AND ( CASE LENGTH( aa.fkmh ) WHEN 14 THEN SUBSTR( aa.fkmh, 9, 6 ) ELSE aa.fkmh END ) = bb.fzqdm
+        AND bb.fdate = DATE('2019-10-10')
+    </select>
 
 </mapper>
