@@ -6,6 +6,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+
 
 /**
  * @ClassName AdviceTime
@@ -32,12 +34,12 @@ public class AdviceTime {
         Object[] args = pjp.getArgs();
         Long timeStart = System.currentTimeMillis();
         System.out.println("开始时间:"+timeStart);
-        System.out.println("方法名："+mname+"参数列表"+args);
+        System.out.println("方法名："+mname+"参数列表"+ Arrays.toString(args));
         try{
             rtn = pjp.proceed();
         }catch (Throwable e){
             //异常处理
-            System.out.println("方法名："+mname+"参数列表"+args+e.getMessage());
+            System.out.println("方法名："+mname+"参数列表"+ Arrays.toString(args) +e.getMessage());
         }finally {
             Long timeEnd = System.currentTimeMillis();
             System.out.println("结束时间:"+timeEnd);

@@ -3,7 +3,6 @@ package com.sun.controller;
 import com.sun.pojo.Zqlb;
 import com.sun.service.ZqlbService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,12 +18,12 @@ import java.util.List;
 @RequestMapping()
 public class ZqlbController {
 
-	@Autowired
-	ZqlbService zqlbService;
-
+	private ZqlbService zqlbService;
 
 	@Autowired
-	ApplicationContext applicationContext;
+	public ZqlbController(ZqlbService zqlbService) {
+		this.zqlbService = zqlbService;
+	}
 
 	@ResponseBody
 	@RequestMapping("selectZqlbById.do")
@@ -32,7 +31,6 @@ public class ZqlbController {
 		List<Zqlb> zqlbs;
 
 		zqlbs = zqlbService.selectZqlbById(Integer.valueOf(id));
-
 		return zqlbs;
 	}
 
