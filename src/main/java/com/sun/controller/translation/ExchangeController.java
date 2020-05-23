@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.Date;
 import java.util.List;
@@ -33,7 +34,7 @@ public class ExchangeController {
 
     @ResponseBody
     @RequestMapping("tx_test.do")
-    public List<Account> transfer() {
+    public ModelAndView transfer() {
        List<Gzzz> gzzzList = gzzzService.getGzzz(new Date(1));
         for (Gzzz gzzz : gzzzList) {
             System.out.println(gzzz);
@@ -44,7 +45,11 @@ public class ExchangeController {
                 System.out.println(entry.getKey()+entry.getValue());
             }
         }
-        return  accountService.transfer();
+        accountService.transfer();
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("msg","我是股票");
+        mav.setViewName("guPiao");
+        return  mav;
     }
 
 }
