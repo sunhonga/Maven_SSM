@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,17 +23,13 @@ import java.util.List;
 @SunHongAnnotation(value = "${jdbc1.driver}")
 public class JiJinController {
 
-
-    @Autowired
-    ZqlbService zqlbService;
-
     @ResponseBody
-    @RequestMapping("jiJinController.do")
-    public List<Zqlb> selectZqlbById(String id){
-        List<Zqlb> zqlbs = new ArrayList<>();
+    @RequestMapping("jiJin.do")
+    public ModelAndView selectZqlbById(){
 
-        zqlbs = zqlbService.selectZqlbById(Integer.valueOf(id));
-
-        return zqlbs;
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("msg","欢迎来到基金页面");
+        mav.setViewName("jiJin");
+        return mav;
     }
 }
