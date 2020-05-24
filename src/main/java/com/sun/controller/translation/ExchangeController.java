@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.Date;
 import java.util.List;
@@ -30,7 +31,6 @@ public class ExchangeController {
     @Autowired
     GzzzService gzzzService;
 
-
     @ResponseBody
     @RequestMapping("tx_test.do")
     public List<Account> transfer() {
@@ -44,7 +44,9 @@ public class ExchangeController {
                 System.out.println(entry.getKey()+entry.getValue());
             }
         }
-        return  accountService.transfer();
+
+
+        return accountService.transfer();
     }
 
 }

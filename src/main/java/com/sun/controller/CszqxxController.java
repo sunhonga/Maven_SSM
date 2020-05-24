@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -44,6 +45,14 @@ public class CszqxxController {
     }
 
 
+    @RequestMapping("zhaiQuan.do")
+    @ResponseBody
+    public ModelAndView zhaiQuan(){
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("msg","欢迎来到债券页面");
+        mav.setViewName("guPiao");
+        return mav;
+    }
 
 
 
