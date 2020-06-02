@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sun.mapper.GuPiaoInfoMapper">
+
+
+  <select id="getGuPiaoInfo" resultType="com.sun.pojo.GuPiaoInfo">
+    SELECT
+      jj.fzqdm gpdm,
+      jj.fzqmc gpmc,
+      cc.flxmc mxbk
+    FROM
+      jjhzxx jj
+        LEFT JOIN csgpbklx cc ON jj.fhymx = cc.flxdm
+    <where>
+      <if test="gpdm !=null and gpdm !=''">
+        jj.fzqdm = #{gpdm}
+      </if>
+      <if test="mxbk !=null and mxbk !='' ">
+        AND cc.flxmc = #{mxbk}
+      </if>
+    </where>
+    LIMIT #{startLine},500
+
+  </select>
+</mapper>
