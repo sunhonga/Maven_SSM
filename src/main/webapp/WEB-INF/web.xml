@@ -13,6 +13,14 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:spring/applicationContext*.xml</param-value>
   </context-param>
+  <context-param>
+    <param-name>contextId</param-name>
+    <param-value>灰太狼的web容器</param-value>
+  </context-param>
+<!--  <context-param>
+    <param-name>contextClass</param-name>
+    <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+  </context-param>-->
   <!-- 使用监听器加载Spring配置文件 -->
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

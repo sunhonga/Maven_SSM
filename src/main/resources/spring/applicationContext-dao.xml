@@ -12,7 +12,7 @@
     <context:property-placeholder location="classpath:jdbc*.properties" />
 
     <!-- 数据库连接池 -->
-    <bean id="dataSource1" class="org.apache.commons.dbcp.BasicDataSource"
+    <bean id="dataSource1" class="com.alibaba.druid.pool.DruidDataSource"
           destroy-method="close">
         <property name="driverClassName" value="${jdbc1.driver}" />
         <property name="url" value="${jdbc1.url}" />
@@ -25,7 +25,7 @@
     </bean>
 
 
-    <bean id="dataSource2" class="org.apache.commons.dbcp.BasicDataSource"
+    <bean id="dataSource2" class="com.alibaba.druid.pool.DruidDataSource"
           destroy-method="close">
         <property name="driverClassName" value="${jdbc2.driver}" />
         <property name="url" value="${jdbc2.url}" />
