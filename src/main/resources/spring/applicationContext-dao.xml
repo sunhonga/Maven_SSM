@@ -68,24 +68,36 @@
 
 
     <!--事务的练习-->
-    <tx:annotation-driven transaction-manager="transactionManagerransaction"/>
-    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+    <!--方式一：注解驱动的,加上@Transactional()注解的会被代理,传播行为在该注解里面的属性值配置-->
+    <tx:annotation-driven transaction-manager="transactionManagerransaction" />
+
+    <!--方式二：-->
+<!--
+    <tx:advice id="txAdvice" transaction-manager="transactionManagerransaction">
+        <tx:attributes>
+            <tx:method name="add*" propagation="REQUIRED"/>
+            <tx:method name="del*" propagation="REQUIRED"/>
+            <tx:method name="modify*" propagation="REQUIRED"/>
+            <tx:method name="*" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+-->
+<!--
+    <aop:config>
+        <aop:pointcut id="allTestServiceMethod" expression="execution(* com.sun..*(..))"/>
+        <aop:advisor pointcut-ref="allTestServiceMethod" advice-ref="txAdvice" />
+    </aop:config>
+-->
+
+
+
+    <aop:aspectj-autoproxy proxy-target-class="true">
+    </aop:aspectj-autoproxy>
+   <!-- <aop:config proxy-target-class="true"></aop:config> --> <!--强制使用CGLIB代理-->
     <bean id="transactionManagerransaction" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
 
-
-  <!--  <tx:advice id="txAdvice" transaction-manager="transactionManagerransaction" >
-        <tx:attributes>
-            <tx:method name="*" propagation="REQUIRED"/>
-        </tx:attributes>
-    </tx:advice>
-
-    &lt;!&ndash;aop的配置&ndash;&gt;
-    <aop:config>
-        <aop:pointcut  expression="execution(* com.sun.service..*.*(..))" id="pointcut1"/>
-        <aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut1"/>
-    </aop:config>-->
 
 </beans>
