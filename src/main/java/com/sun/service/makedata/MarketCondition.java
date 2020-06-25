@@ -13,6 +13,10 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
 public class MarketCondition implements Condition {
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-        return false;
+        if (metadata.isAnnotated(Market.class.getName())) {
+            metadata.getAnnotationAttributes(Market.class.getName()).get("value");
+            return false;
+        }
+        return true;
     }
 }
