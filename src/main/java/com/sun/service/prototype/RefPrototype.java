@@ -14,27 +14,28 @@ import org.springframework.stereotype.Service;
 @Service
 public class RefPrototype implements InitializingBean {
 
-/*    //该方法获取的bean是单例的
-    @Autowired
-    ProService proService;*/
-
-
     private ProService proService;
+
+    @Autowired
+    ProService2 proService2;
+
 
     @Autowired
     ApplicationContext applicationContext;
 
 
-    public ProService createProService(){
-
-        return this.applicationContext.getBean(ProService.class);           //通过改方法获取的bean是原型,
-    }
 
 
     @Override
     public void afterPropertiesSet() throws Exception {
         for (int i = 0; i < 10; i++) {
+            //获得的是原先对象每次的地址值都不一样
             System.out.println(this.applicationContext.getBean(ProService.class));
+        }
+        System.out.println("==================");
+        for (int i = 0; i < 10; i++) {
+            //虽然proService2是原先模式,但是通过@Autowired注入的时候就是一个值
+            System.out.println(proService2);
         }
 
     }

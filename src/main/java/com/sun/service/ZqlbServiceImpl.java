@@ -25,8 +25,11 @@ import java.util.List;
 public class ZqlbServiceImpl implements ZqlbService, InitializingBean, BeanNameAware, ApplicationContextAware {
 
 	@Autowired
-	//@Qualifier("zsunHongImpl1")
-	ZsunHong zsunHong;						//@Autowired获得的bean是单例对象,如果要获得原型对象如何获取???
+	//@Qualifier("zsunHongImpl1")			//一个接口有多个实现的时候,先判断实现类上是否有@Primary注解,有就进行注入,如果存在多个@Primary就报错.
+	ZsunHong zsunHong;						//在判断实现类上是否有@Priority注解,去其属性值value最小的进行注入。
+											//或者加@Qualifier并指定类名,@Qualifier("zsunHongImpl1")
+											//或者@Resource注解,指定类名
+											//@Autowired获得的bean是单例对象,如果要获得原型对象如何获取???
 
 
 	@Autowired
