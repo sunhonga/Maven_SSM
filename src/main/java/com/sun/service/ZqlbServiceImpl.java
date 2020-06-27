@@ -6,12 +6,15 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import javax.annotation.Priority;
 import javax.annotation.Resource;
 import java.util.List;
 /**
@@ -20,6 +23,11 @@ import java.util.List;
  */
 @Service
 public class ZqlbServiceImpl implements ZqlbService, InitializingBean, BeanNameAware, ApplicationContextAware {
+
+	@Autowired
+	//@Qualifier("zsunHongImpl1")
+	ZsunHong zsunHong;						//@Autowired获得的bean是单例对象,如果要获得原型对象如何获取???
+
 
 	@Autowired
 	ZqlbMapper zqlbMapper;
