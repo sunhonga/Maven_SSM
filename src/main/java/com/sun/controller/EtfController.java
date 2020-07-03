@@ -17,7 +17,7 @@ import java.util.List;
  * Date 2020-3-31 16:16
  **/
 @Controller
-@RequestMapping()
+@RequestMapping("/etf")
 public class EtfController {
 
 

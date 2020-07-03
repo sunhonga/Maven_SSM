@@ -23,7 +23,7 @@ public class MakeDataService implements ApplicationContextAware {
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        /*Map<String,Object> marketMap = applicationContext.getBeansWithAnnotation(Market.class);
+/*        Map<String,Object> marketMap = applicationContext.getBeansWithAnnotation(Market.class);
         marketMap.forEach((key,value)->{
             String market = value.getClass().getAnnotation(Market.class).name();
             makeDataHandler.put(market, (MakeDataProcessor) value);

@@ -17,6 +17,12 @@ public interface CszqxxMapper {
     int insertSelective(Cszqxx record);
 
 
+    /**
+     * 查询证券：通过基金代码和证券名称
+     * @param fjjdm
+     * @param fzqmc
+     * @return
+     */
     List<Cszqxx> selectByFjjdmAndFzqmc(@Param("fjjdm") String fjjdm,@Param("fzqmc") String fzqmc);
 
 

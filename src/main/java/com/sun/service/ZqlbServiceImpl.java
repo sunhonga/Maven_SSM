@@ -3,10 +3,13 @@ package com.sun.service;
 import com.sun.mapper.ZqlbMapper;
 import com.sun.pojo.Zqlb;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -22,7 +25,7 @@ import java.util.List;
  * 创建人 SunHong
  */
 @Service
-public class ZqlbServiceImpl implements ZqlbService, InitializingBean, BeanNameAware, ApplicationContextAware {
+public class ZqlbServiceImpl implements ZqlbService, InitializingBean, BeanNameAware, ApplicationContextAware , BeanFactoryAware {
 
 	@Autowired
 	//@Qualifier("zsunHongImpl1")			//一个接口有多个实现的时候,先判断实现类上是否有@Primary注解,有就进行注入,如果存在多个@Primary就报错.
@@ -73,5 +76,10 @@ public class ZqlbServiceImpl implements ZqlbService, InitializingBean, BeanNameA
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
+	}
+
+	@Override
+	public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+		((DefaultListableBeanFactory)beanFactory).registerSingleton("test",new Object());	//手动增加自己的bean
 	}
 }
