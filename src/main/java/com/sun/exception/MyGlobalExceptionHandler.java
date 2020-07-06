@@ -14,7 +14,7 @@ import java.io.IOException;
  * Author sunhong
  * Date 2020-7-6 17:04
  **/
-@ControllerAdvice(annotations = ResponseBody.class)
+@ControllerAdvice(value ="com.sun.controller" ,annotations = ResponseBody.class)
 public class MyGlobalExceptionHandler {
 
     @ResponseBody
