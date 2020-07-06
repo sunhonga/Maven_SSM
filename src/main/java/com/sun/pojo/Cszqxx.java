@@ -378,4 +378,47 @@ public class Cszqxx {
     public void setFupdate(Date fupdate) {
         this.fupdate = fupdate;
     }
+
+    @Override
+    public String toString() {
+        return "Cszqxx{" +
+                "fzqdm='" + fzqdm + '\'' +
+                ", fzqmc='" + fzqmc + '\'' +
+                ", fjjdm='" + fjjdm + '\'' +
+                ", fjxqsr=" + fjxqsr +
+                ", fjxjzr=" + fjxjzr +
+                ", fsqpmlv=" + fsqpmlv +
+                ", fpmlv=" + fpmlv +
+                ", fpmje=" + fpmje +
+                ", ffxjg=" + ffxjg +
+                ", ffxcs=" + ffxcs +
+                ", ffxfs=" + ffxfs +
+                ", fzqlb='" + fzqlb + '\'' +
+                ", fjysc='" + fjysc + '\'' +
+                ", fssdd='" + fssdd + '\'' +
+                ", fscdm='" + fscdm + '\'' +
+                ", flvlx='" + flvlx + '\'' +
+                ", fcxqsr=" + fcxqsr +
+                ", fcxjzr=" + fcxjzr +
+                ", fan='" + fan + '\'' +
+                ", fsh=" + fsh +
+                ", fzzr='" + fzzr + '\'' +
+                ", fchk='" + fchk + '\'' +
+                ", fstartdate=" + fstartdate +
+                ", fqyxx='" + fqyxx + '\'' +
+                ", fjxfs='" + fjxfs + '\'' +
+                ", fid=" + fid +
+                ", fbz='" + fbz + '\'' +
+                ", ftype=" + ftype +
+                ", fendfan='" + fendfan + '\'' +
+                ", fjsjg=" + fjsjg +
+                ", fcbgz=" + fcbgz +
+                ", frlvjx=" + frlvjx +
+                ", fkxqrq=" + fkxqrq +
+                ", ffxr='" + ffxr + '\'' +
+                ", ftsfxr=" + ftsfxr +
+                ", fhfxr=" + fhfxr +
+                ", fupdate=" + fupdate +
+                '}';
+    }
 }

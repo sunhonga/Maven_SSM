@@ -29,6 +29,10 @@ sdsdsdsdsd
 <a id="zhaiQuan" href="${pageContext.request.contextPath }/zhaiQuan.do">点我去债券页面happy</a>
 <a id="jiJin" href="${pageContext.request.contextPath }/jiJin.do">点我去基金页面happy</a>
 
+<%--联系springMVC--%>
+
+
+
 <%--<button id="search1" type="button">单表多入参查询</button>
 <button id="search2" type="button">多表关联查询</button>--%>
 </body>

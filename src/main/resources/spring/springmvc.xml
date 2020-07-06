@@ -14,7 +14,21 @@
     <mvc:default-servlet-handler/>
 
     <!-- 配置注解驱动，相当于同时使用最新处理器映射跟处理器适配器,对json数据响应提供支持 -->
-    <mvc:annotation-driven />
+    <mvc:annotation-driven >
+
+ <!--       <mvc:message-converters register-defaults="true">
+          <bean id="formMeassage" class="com.sun.mvc.FromObjArgumentResolver"></bean> &lt;!&ndash;添加自定义消息转换&ndash;&gt;
+        </mvc:message-converters>-->
+
+        <mvc:argument-resolvers>
+        <bean id="formObj" class="com.sun.mvc.FromObjArgumentResolver"/>    <!--自定义参数解析器-->
+        </mvc:argument-resolvers>
+
+        <!--<mvc:return-value-handlers>
+            <bean id="fromreturn" class="com.sun.mvc.FromObjArgumentResolver"></bean>           &lt;!&ndash;自定义返回值解析器&ndash;&gt;
+        </mvc:return-value-handlers>-->
+
+    </mvc:annotation-driven>
 
     <!-- 配置视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -27,7 +41,8 @@
         <!-- 多个拦截器,顺序执行 -->
         <!-- 拦截器1 登陆拦截 -->
         <mvc:interceptor>
-            <mvc:mapping path="/**/*.do" /><!-- 匹配所有文件夹所有以.do结尾的请求 -->
+            <!--<mvc:mapping path="/**/*.do" />-->  <!-- 匹配所有文件夹所有以.do结尾的请求 -->
+            <mvc:mapping path="/**/*" />
             <bean class="com.sun.utils.interceptor.MyInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>

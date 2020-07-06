@@ -36,24 +36,29 @@ public class ZqlbController {
 	}
 
 
-	//url路径:getCszqxx1.do/{1}
+	//===========================分割线一下用于SpringMVC=========================
+	//@PathVariable,@RequestParam,@RequestBody注解练习
+	@Autowired
+	CszqxxMapper cszqxxMapper;
+
+
+	//url路径:zqlb1.do/{1}
 	@RequestMapping("zqlb1.do/{id}")
 	@ResponseBody
 	public List<Cszqxx> getCszqxx0(@PathVariable(value = "id") String id) {
+		System.out.println(id);
+		id = "BJ186A";
 		List<Cszqxx> cszqxxList = cszqxxMapper.selectByFzqdm(id);
 		return cszqxxList;
 	}
 
-	@Autowired
-	CszqxxMapper cszqxxMapper;
 
-	//url路径：为/aagetCszqxx.do?fjjdm=0033&fzqmc=苏州09
+	//url路径：为/zqlb2.do?fjjdm=0033&fzqmc=苏州09
 	@RequestMapping("zqlb2.do")
 	@ResponseBody
 	public List<Cszqxx> getCszqxx(@RequestParam (value = "fjjdm") String fjjdm, @RequestParam (value ="fzqmc" ) String fzqmc){
-
+		System.out.println(fjjdm+fzqmc);
 		List<Cszqxx> cszqxxList = cszqxxMapper.selectByFjjdmAndFzqmc(fjjdm,fzqmc);
-
 		return cszqxxList;
 	}
 
@@ -61,8 +66,9 @@ public class ZqlbController {
 	@RequestMapping("jsonzqlb.do")
 	@ResponseBody
 	public List<Cszqxx> getCszqxx2(@RequestBody Cszqxx cszqxx){
-
-		return (List<Cszqxx>) new Cszqxx();
+		System.out.println(cszqxx);
+		List<Cszqxx> cszqxxList = cszqxxMapper.selectByFjjdmAndFzqmc(cszqxx.getFjjdm(),cszqxx.getFzqmc());
+		return cszqxxList;
 	}
 
 
