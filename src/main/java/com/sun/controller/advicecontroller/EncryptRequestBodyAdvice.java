@@ -1,4 +1,4 @@
-package com.sun.controller.encryptcontroller;
+package com.sun.controller.advicecontroller;
 
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpInputMessage;

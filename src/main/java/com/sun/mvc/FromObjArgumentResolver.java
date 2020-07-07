@@ -23,6 +23,10 @@ import java.util.Enumeration;
  * @Description TODO
  * Author sunhong
  * Date 2020-7-3 19:07
+ * 通过<bean>标签的方式托给spring容器管理
+ * <mvc:argument-resolvers >
+ * <bean id="formObj" class="com.sun.mvc.FromObjArgumentResolver"/>
+ * </mvc:argument-resolvers>
  **/
 public class FromObjArgumentResolver implements HandlerMethodArgumentResolver {
     @Override

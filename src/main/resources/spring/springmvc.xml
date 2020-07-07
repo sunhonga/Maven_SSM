@@ -20,7 +20,7 @@
           <bean id="formMeassage" class="com.sun.mvc.FromObjArgumentResolver"></bean> &lt;!&ndash;添加自定义消息转换&ndash;&gt;
         </mvc:message-converters>-->
 
-        <mvc:argument-resolvers>
+        <mvc:argument-resolvers >
         <bean id="formObj" class="com.sun.mvc.FromObjArgumentResolver"/>    <!--自定义参数解析器-->
         </mvc:argument-resolvers>
 
