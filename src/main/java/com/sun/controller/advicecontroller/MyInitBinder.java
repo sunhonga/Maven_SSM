@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.InitBinder;
  * Date 2020-7-7 10:44
  **/
 
-@ControllerAdvice
+@ControllerAdvice       //可以指定对于那些包下的controller使用自定义的属性绑定,默认是全局生效
 public class MyInitBinder {
 
 

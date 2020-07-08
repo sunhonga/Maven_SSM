@@ -72,4 +72,13 @@ public class ZqlbController {
 	}
 
 
+
+	//http://localhost:8080/Maven_SSM/zqlb3.do?fjjdm=  1122&cszqxx=国债,3311
+	@RequestMapping("zqlb3.do")
+	@ResponseBody
+	public List<Cszqxx> getCszqxx3(@RequestParam (value = "fjjdm") String fjjdm, @RequestParam (value ="cszqxx" ) Cszqxx cszqxx){
+		System.out.println(fjjdm+cszqxx);
+		List<Cszqxx> cszqxxList = cszqxxMapper.selectByFjjdmAndFzqmc(fjjdm,"");
+		return cszqxxList;
+	}
 }
