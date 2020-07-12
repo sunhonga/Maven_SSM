@@ -25,6 +25,10 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     AccountMapper accountMapper;
 
+    @Autowired
+    CouponsService couponsService;
+
+
     @Transactional()
     @Override
     public List<Account> transfer()  {
@@ -39,5 +43,19 @@ public class AccountServiceImpl implements AccountService {
 
         return accountMapper.getAccount();
 
+    }
+
+    @Transactional
+    @Override
+    public List<Account> transfer1() {
+        accountMapper.add(new Account("张三", 1000));     //  给张三加钱
+        couponsService.add("张三",100);                    //  给张三加积分
+        return null;
+    }
+
+    @Transactional
+    @Override
+    public List<Account> transfer2() {
+        return null;
     }
 }

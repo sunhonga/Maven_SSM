@@ -67,4 +67,12 @@ public class TestModel {
                 ", times=" + times +
                 '}';
     }
+
+    public TestModel(int age, String name) {
+        this.age = age;
+        this.name = name;
+    }
+
+    public TestModel() {
+    }
 }

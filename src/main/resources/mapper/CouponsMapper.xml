@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sun.mapper.translation.CouponsMapper">
+
+  <!--  <resultMap id="BaseResultMap" type="com.sun.pojo.Zqlb">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="zqlb" jdbcType="INTEGER" property="zqlb" />
+        <result column="subzqlb" jdbcType="VARCHAR" property="subzqlb" />
+        <result column="desc" jdbcType="VARCHAR" property="desc" />
+
+    </resultMap>-->
+    <update id="add"  parameterType="coupons" >
+        update coupons set coupons = coupons+#{coupons} where name = #{name}
+    </update>
+
+
+</mapper>

@@ -18,6 +18,8 @@ import java.util.List;
 public interface AccountService {
 
     List<Account> transfer() ;
+    List<Account> transfer1() ;
+    List<Account> transfer2() ;
 
 
 

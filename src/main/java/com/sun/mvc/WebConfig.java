@@ -60,7 +60,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-
+        System.out.println("ssss");
     }
 
     @Override
@@ -80,7 +80,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
-
+        System.out.println("sss");
     }
 
 
