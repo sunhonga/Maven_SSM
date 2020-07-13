@@ -15,4 +15,8 @@
     </update>
 
 
+    <update id="sub"  parameterType="coupons" >
+        update coupons set coupons = coupons-#{coupons} where name = #{name}
+    </update>
+
 </mapper>

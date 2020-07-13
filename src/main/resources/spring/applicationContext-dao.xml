@@ -90,9 +90,9 @@
 -->
 
 
-
+<!--
     <aop:aspectj-autoproxy proxy-target-class="true">
-    </aop:aspectj-autoproxy>
+    </aop:aspectj-autoproxy>-->
    <!-- <aop:config proxy-target-class="true"></aop:config> --> <!--强制使用CGLIB代理-->
     <bean id="transactionManagerransaction" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>

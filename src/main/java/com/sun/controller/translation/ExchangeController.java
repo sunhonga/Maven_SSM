@@ -44,7 +44,7 @@ public class ExchangeController {
                 System.out.println(entry.getKey()+entry.getValue());
             }
         }
-        return  accountService.transfer1();
+        return  accountService.transfer2();
     }
 
 }

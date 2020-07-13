@@ -14,8 +14,8 @@ import org.springframework.stereotype.Component;
  * Date 2020-5-21 13:53
  **/
 
-@Aspect
-@Component
+//@Aspect
+//@Component
 public class AdviceTime {
 
     @Pointcut("execution(* com.sun..*(..))")

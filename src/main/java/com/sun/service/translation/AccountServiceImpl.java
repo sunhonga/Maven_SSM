@@ -29,7 +29,7 @@ public class AccountServiceImpl implements AccountService {
     CouponsService couponsService;
 
 
-    @Transactional()
+    @Transactional
     @Override
     public List<Account> transfer()  {
         accountMapper.add(new Account("张三", 1000));
@@ -45,6 +45,27 @@ public class AccountServiceImpl implements AccountService {
 
     }
 
+    /**
+     * 自调用事务失效
+     * 默认只有在外部调用事务才会生效
+     * 调用自身的方法不会走代理类
+     * @return
+     */
+    @Transactional
+    @Override
+    public List<Account> transfer0() {
+        transfer();
+        if (1<2) {
+            throw new RuntimeException();
+        }
+        return null;
+    }
+
+
+    /**
+     * 常见方式:会共用transfer1开启的一个事务
+     * @return
+     */
     @Transactional
     @Override
     public List<Account> transfer1() {
@@ -53,9 +74,25 @@ public class AccountServiceImpl implements AccountService {
         return null;
     }
 
+
+    /**
+     * 嵌套事务:couponsService.sub 传播行为用的嵌套事务,
+     * 调用couponsService.sub的时候,transfer2所在的事务就会挂起,couponsService.sub会起一个新的子事务并设置savepoint.
+     * 如果couponsService.sub已经提交，那么transfer2失败回滚,couponsService.sub也将回滚.
+     * 如果couponsService.sub失败回滚,如果他抛出的异常被transfer2的try..catch捕获并处理,transfer2事务仍然可能提交;如果他抛出的异常未被transfer2捕获处理,transfer2事务将回滚。
+     * @return
+     */
     @Transactional
     @Override
     public List<Account> transfer2() {
+
+        accountMapper.sub(new Account("李四", 1000)); //减钱
+        try{
+            couponsService.sub("李四",100);       // 减积分
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         return null;
     }
 }
