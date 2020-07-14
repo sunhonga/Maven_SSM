@@ -7,6 +7,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.context.annotation.*;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * @ClassName MarketConfig
@@ -18,6 +19,7 @@ import org.springframework.context.annotation.*;
 @Configuration
 @ComponentScan  //不配置默认当前包com.sun.configuration
 @Import({ShangHaiConfig.class,ShengZhenConfig.class,MyImportSelector.class})
+@EnableTransactionManagement
 public class RootConfig implements BeanFactoryAware {
 
     /**

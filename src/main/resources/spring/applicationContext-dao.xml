@@ -69,7 +69,7 @@
 
     <!--事务的练习-->
     <!--方式一：注解驱动的,加上@Transactional()注解的会被代理,传播行为在该注解里面的属性值配置-->
-    <tx:annotation-driven transaction-manager="transactionManagerransaction" />
+   <!-- <tx:annotation-driven transaction-manager="transactionManagerransaction" />-->
 
     <!--方式二：-->
 <!--

@@ -51,7 +51,7 @@ public class AccountServiceImpl implements AccountService {
      * 调用自身的方法不会走代理类
      * @return
      */
-    @Transactional
+    @Transactional      //无论是否注释这一行transfer()方法的事务都是失效的.
     @Override
     public List<Account> transfer0() {
         transfer();
