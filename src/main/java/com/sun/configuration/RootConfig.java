@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @ComponentScan  //不配置默认当前包com.sun.configuration
 @Import({ShangHaiConfig.class,ShengZhenConfig.class,MyImportSelector.class})
-@EnableTransactionManagement
+@EnableTransactionManagement   //事务管理基于注解配置
 public class RootConfig implements BeanFactoryAware {
 
     /**
